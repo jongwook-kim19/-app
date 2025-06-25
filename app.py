@@ -11,6 +11,10 @@ data = [
 ]
 df = pd.DataFrame(data)
 
+@app.route("/")
+def home():
+    return "Nawoo 가격 검색 API 작동 중"
+
 @app.route("/search", methods=["GET"])
 def search():
     query = request.args.get("q", "").strip().lower()
@@ -22,10 +26,6 @@ def search():
         "상품명": result['상품명'],
         "소비자금액": result['소비자금액']
     })
-
-@app.route("/")
-def home():
-    return "Nawoo 가격 검색 API 작동 중"
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=10000)

@@ -48,23 +48,5 @@ def search_page():
             async function searchProduct() {
                 const query = document.getElementById('searchInput').value;
                 const resultDiv = document.getElementById('result');
-                resultDiv.innerHTML = '검색 중...';
-                try {
-                    const res = await fetch(`/search?q=${encodeURIComponent(query)}`);
-                    const data = await res.json();
-                    if (data.result) {
-                        resultDiv.innerHTML = data.result;
-                    } else {
-                        resultDiv.innerHTML = `상품명: ${data.상품명}<br>소비자금액: ${data.소비자금액.toLocaleString()} 원`;
-                    }
-                } catch (err) {
-                    resultDiv.innerHTML = '오류가 발생했습니다. 다시 시도해주세요.';
-                }
-            }
-        </script>
-    </body>
-    </html>
-    """)
-
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=10000)
+                resultDiv.innerHTML
+
